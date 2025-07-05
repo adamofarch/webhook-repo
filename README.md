@@ -43,5 +43,10 @@ TechStax Assignment Submission Repository - Webhook Repo
   python run.py
   ```
 
+  - Endpoints
+    - '/' - Homepage(UI)
+    - '/webhook/receiver' - Receives the webhooks payload from github actions
+    - '/webhook/events' - Keep polling the database and updates UI every 15 seconds
+
   
   
