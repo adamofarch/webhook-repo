@@ -1,8 +1,12 @@
 from pymongo import MongoClient
 from datetime import datetime
-mongo = MongoClient("mongodb://localhost:27017/test_db")
+import os
+
+CONNECTION_STRING = os.getenv('DB_CONNECTION_STRING')
+mongo = MongoClient(CONNECTION_STRING)
 
 def convert_iso_to_display_format(iso_timestamp):
+    # Convert ISO 8601 timestamp to a human-readable format (Pure AI slop for beautification of the timestamp)
     dt = datetime.fromisoformat(iso_timestamp.replace('Z', '+00:00'))
 
     utc_dt = dt.utctimetuple()
@@ -58,9 +62,10 @@ def parse_github_event(payload, event_type):
 def push_to_mongo(event_data):
     if event_data:
         try:
-            response = mongo.test_db.events_data.insert_one(event_data)
-            print(response)
+            # test_db => your database name, events_data => your collection name, if you don't provide one it will create a new one
+            mongo.test_db.events_data.insert_one(event_data)
             return f"Event saved to MongoDB: {event_data}"
+
         except Exception as e:
             return f"Error saving event to MongoDB: {e}"
     else:
