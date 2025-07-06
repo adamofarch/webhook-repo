@@ -22,7 +22,7 @@ TechStax Assignment Submission Repository - Webhook Repo
 
 ## Usage
 
-  - Ngrok free tunnel (If in a development environment)
+  - Ngrok free tunnel for port forwarding (If in a development environment)
   ```bash
   paru -S ngrok
   ngrok config add-authtoken <your_authtoken_here>
