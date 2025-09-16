@@ -1,7 +1,3 @@
-## Overview 
-
-TechStax Assignment Submission Repository - Webhook Repo
-
 ## Installation 
 
   - Create a new virtual environment 
